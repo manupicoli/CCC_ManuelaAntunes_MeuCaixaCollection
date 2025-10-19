@@ -4,12 +4,24 @@ meta {
   seq: 1
 }
 
-get {
-  url: {{baseUrl}}/v1/user
-  body: none
+post {
+  url: {{baseUrl}}/v1/user/create
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "Manuela",
+    "lastName": "Antunes",
+    "companyName": "Consultório Antunes",
+    "email": "teste2@gmail.com",
+    "phone": "54999999999",
+    "password": "Admin@1234"
+  }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
