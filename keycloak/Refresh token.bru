@@ -1,0 +1,33 @@
+meta {
+  name: Refresh token
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/realms/meucaixa/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  client_id: meucaixa-web
+  client_secret: EUNE1wElqGgAfgmjZN7Y7rQA6zafA75S
+  grant_type: refresh_token
+  scope: openid
+  refresh_token: eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhMjdlNTU0MS04NWZhLTQ5YmItODM5ZS02MThmMjlmZGNlYzgifQ.eyJleHAiOjE3NjExNzQ1MjUsImlhdCI6MTc2MTE3MjcyNSwianRpIjoiMGRhNDBkMmItMWM4ZS02YmJhLTVmMzktMWQ3ZGNkYmRjNjA4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tZXVjYWl4YSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvbWV1Y2FpeGEiLCJzdWIiOiJmYjM1Y2U0ZC0yNzMxLTQzNWItYjlkMS1mMzczZDBkMmEyYjIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibWV1Y2FpeGEtd2ViIiwic2lkIjoiNzU2YTNhODgtZTFhOC00ZDgxLTkzZTItYzVkNzYwYWM4NDkzIiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSB3ZWItb3JpZ2lucyBhY3IgYmFzaWMgcm9sZXMifQ.OefFCbIOeYYtwC1lc9IfOu7k54iQ6ToefLO6gmAlwI7gNdJf61DindVN5plFZujBGXnARspwOg_A4Awx80TUxw
+}
+
+body:multipart-form {
+  : 
+}
+
+script:post-response {
+  let data = res.body;
+  bru.setEnvVar("token", data.access_token);
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

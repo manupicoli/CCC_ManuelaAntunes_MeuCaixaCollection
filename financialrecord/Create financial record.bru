@@ -1,0 +1,32 @@
+meta {
+  name: Create financial record
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/financial-record
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "customerCode": "324735",
+    "type": "INCOME",
+    "amount": 900,
+    "dueDate": null,
+    "paymentDate": "2025-11-30T13:00:00",
+    "description": "Recebimento cirurgia",
+    "category": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

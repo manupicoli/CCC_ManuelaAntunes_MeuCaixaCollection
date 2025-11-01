@@ -12,9 +12,14 @@ post {
 
 body:json {
   {
-    "username": "manuela",
-    "password": "admin"
+    "username": "manuela@gmail.com",
+    "password": "Admin@1234"
   }
+}
+
+script:post-response {
+  let data = res.body;
+  bru.setEnvVar("token", data.accessToken);
 }
 
 settings {
