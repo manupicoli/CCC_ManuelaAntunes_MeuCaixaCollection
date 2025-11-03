@@ -1,0 +1,36 @@
+meta {
+  name: Get financial record
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/financial-record/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 1
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "customerCode": "324735",
+    "type": "INCOME",
+    "amount": 700,
+    "dueDate": null,
+    "paymentDate": "2025-11-30T13:00:00",
+    "description": "Recebimento cirurgia",
+    "category": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
