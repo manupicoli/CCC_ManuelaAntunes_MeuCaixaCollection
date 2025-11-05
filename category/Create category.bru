@@ -1,0 +1,27 @@
+meta {
+  name: Create category
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/category
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "title": "Mercadorias",
+    "description": "Compra de cerâmicas"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

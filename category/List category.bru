@@ -1,0 +1,39 @@
+meta {
+  name: List category
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/category
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~sort: isDefault,ASC
+  ~page: 1
+  ~size: 3
+  ~qs: tri
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "customerCode": "324735",
+    "type": "INCOME",
+    "amount": 700,
+    "dueDate": null,
+    "paymentDate": "2025-11-30T13:00:00",
+    "description": "Recebimento cirurgia",
+    "category": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
