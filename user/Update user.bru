@@ -1,0 +1,33 @@
+meta {
+  name: Update user
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/v1/user/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: 7ddbedc7-ef7f-45b5-8b76-25bd1c1e39db
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "firstName": "Manuela",
+    "lastName": "Antunes",
+    "companyName": "MeuCaixaTeste",
+    "phone": "54999998888"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,20 @@
+meta {
+  name: DashboardDetails
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/home
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

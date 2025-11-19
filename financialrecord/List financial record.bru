@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/v1/financial-record?sort=amount,DESC
+  url: {{baseUrl}}/v1/financial-record
   body: none
   auth: bearer
 }
 
 params:query {
-  sort: amount,DESC
+  ~sort: amount,DESC
   ~page: 1
   ~size: 1
   ~qs: rec

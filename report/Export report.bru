@@ -1,0 +1,25 @@
+meta {
+  name: Export report
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/report?customStart=2025-10-01&customEnd=2025-12-01
+  body: none
+  auth: bearer
+}
+
+params:query {
+  customStart: 2025-10-01
+  customEnd: 2025-12-01
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
